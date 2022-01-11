@@ -11,8 +11,8 @@ module.exports = class ContainSum {
       for (let j = i + 1; j < this.data.length; j += 1) {
         this.iterations += 1;
         if (this.data[i] + this.data[j] === this.k) {
-          this.result = `true ${[this.data[i], this.data[j]]} = ${this.k}`;
-          break;
+          this.result = `true ${this.data[i]} + ${this.data[j]} = ${this.k}`;
+          return;
         }
       }
     }
