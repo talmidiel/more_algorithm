@@ -15,7 +15,8 @@ module.exports = class ContainSum {
       }
     }
     if (!this.result && low < this.data.length - 1) {
-      this.run(low + 1);
+      //this.run(low + 1);
+      return
     }
   }
 };

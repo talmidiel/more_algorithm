@@ -21,16 +21,20 @@ const generateData = () => {
   fs.writeFileSync('./data/huge_immolib.txt', array.join(' '));
 };
 
-// generateData()
+//generateData()
 
 const scripts = fs.readdirSync('scripts');
 
-scripts.map((script) => {
-  const Script = require(`./scripts/${script}`);
-  const algorithm = new Script(
-    fs.readFileSync(process.argv[2], 'utf8').split(' ').map((i) => parseInt(i, 10)),
-    parseInt(process.argv[3], 10),
-  );
-  algorithm.run();
-  console.log(`${script}: ${algorithm.iterations} iterations, resultats: ${algorithm.result}`);
-});
+try {
+  scripts.map((script) => {
+    const Script = require(`./scripts/${script}`);
+    const algorithm = new Script(
+      fs.readFileSync(process.argv[2], 'utf8').split(' ').map((i) => parseInt(i, 10)),
+      parseInt(process.argv[3], 10),
+    );
+    algorithm.run();
+    console.log(`${script}: ${algorithm.iterations} iterations, resultats: ${algorithm.result}`);
+  });
+} catch (err) {
+  console.error(err.message);
+}
