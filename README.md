@@ -12,6 +12,13 @@
 
 - node.js >=v10
 
+## Instructions
+
+to launch the algorithm you need to run `node main.js data/one_of_the_six_files.txt [a random integer for the first three scripts]`
+
+ex: `node main.js small_immolib.txt 95`
+
+if you want to randomize the data, uncomment the `generateData()` call inside the main.js file (line 24)
 
 ## Author
 
