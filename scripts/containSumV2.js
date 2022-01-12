@@ -4,20 +4,17 @@ module.exports = class ContainSum {
     this.iterations = 0;
     this.k = k;
     this.result = false;
+    this.sums = [];
   }
 
-  run(low = 0) {
-    for (let i = low + 1; i < this.data.length; i += 1) {
+  run() {
+    for (let i = 0; i < this.data.length; i += 1) {
       this.iterations += 1;
-      if (this.data[low] + this.data[i] === this.k) {
-        this.result = `true ${this.data[low]} + ${this.data[i]} = ${this.k}`;
+      if (this.sums.includes(this.data[i])) {
+        this.result = `true ${(this.k - this.data[i])} + ${this.data[i]} = ${this.k}`;
         return;
       }
-    }
-
-    if (!this.result && low < this.data.length - 2) {
-      //this.run(low + 1);
-      return
+      this.sums.push(this.k - this.data[i]);
     }
   }
 };
