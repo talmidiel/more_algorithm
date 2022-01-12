@@ -33,7 +33,7 @@ try {
       parseInt(process.argv[3], 10),
     );
     algorithm.run();
-    console.log(`${script}: ${algorithm.iterations} iterations, resultats: ${algorithm.result}`);
+    console.log(`${script}: ${algorithm.iterations} comparaisons, resultats: ${algorithm.result}`);
   });
 } catch (err) {
   console.error(err.message);

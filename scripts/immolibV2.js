@@ -1,17 +1,22 @@
 module.exports = class Immolib {
   constructor(data) {
-    this.data = data;
+    this.data = data.reverse();
     this.result = 1;
     this.iterations = 0;
+    this.tmp = []
   }
 
-  run(last = this.data.length - 1) {
-    for (let i = last; i >= 0; i -= 1) {
+  run(i = 0) {
+    if (this.data[0]) this.tmp.push(this.data[0]);
+    console.log(this.data,  this.tmp)
+    if (i > this.data.length) return this.result = this.tmp.length;
+
+
+    this.data = this.data.filter((n) => {
       this.iterations += 1;
-      if (this.data[i] > this.data[last]) {
-        this.result += 1;
-        return this.run(i);
-      }
-    }
+      return n > this.data[0];
+    });
+
+    this.run(i + 1);
   }
 };
