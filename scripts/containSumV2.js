@@ -1,3 +1,14 @@
+/*
+Problematic :
+  Given an array of integers (positive or negatives) and a number k
+  check if the given array contain two numbers whose sum is equal to k
+
+  return the results and the number of comparisons for every version
+
+Version :
+  Solve the problematic with an O(n) algorithm
+ */
+
 module.exports = class ContainSum {
   constructor(data, k) {
     this.data = data;
